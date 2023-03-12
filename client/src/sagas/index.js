@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import {FETCH_ACTIONS,FETCH_ACTIONS_SUCCESS,FETCH_ACTIONS_FAILURE,ADD_ACTION,DELETE_ACTION_REQUEST,DELETE_ACTION,ADD_ACTION_REQUEST} from '../actions/constants'
 import axios from 'axios'
 
-const API_ENDPOINT = ""//"20.203.253.207"
+const API_ENDPOINT = process.env.REACT_APP_BACKEND_URL
 
 function fetchActionsFromApi(){
     return axios.get(API_ENDPOINT + '/api/todos');           

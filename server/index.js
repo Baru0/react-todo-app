@@ -6,11 +6,14 @@ const routes = require('./routes/api/todo');
 
 require('dotenv').config();
 
-const port = process.env.PORT || 5050;
+const port = process.env.PORT;
 
 const app = express();
 
-const mongoEndpoint = "localhost:27017" // process.env.DB
+const mongoEndpoint = process.env.MONGODB
+
+console.log("Launching API on port", port)
+console.log("Connecting to MongoDB at", mongoEndpoint)
 
 //connect to database
 

@@ -4,23 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "client": "npm start --prefix client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "dotenv": "^6.2.0",
+    "dotenv": "^16.0.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.4",
+    "mongoose": "^7.0.1",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1",
-    "nodemon": "^1.18.4"
+    "nodemon": "^2.0.0"
     }
 
 }
