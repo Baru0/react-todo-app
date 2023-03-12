@@ -10,7 +10,7 @@ class ListTodos extends Component {
   }  
   render() {
       let {actions} = this.props.todos;
-      if(actions && actions.length >= 0) {
+      if(actions && actions.length >= 1) {
 
         return actions.map(act => <TodoItem key={act._id} id={act._id} text={act.action} />);
       } else {
