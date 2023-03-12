@@ -2,16 +2,18 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import {FETCH_ACTIONS,FETCH_ACTIONS_SUCCESS,FETCH_ACTIONS_FAILURE,ADD_ACTION,DELETE_ACTION_REQUEST,DELETE_ACTION,ADD_ACTION_REQUEST} from '../actions/constants'
 import axios from 'axios'
 
+const API_ENDPOINT = ""//"20.203.253.207"
+
 function fetchActionsFromApi(){
-    return axios.get('/api/todos');           
+    return axios.get(API_ENDPOINT + '/api/todos');           
 }
 
 function addActionToDatabase(text){
-    return axios.post('/api/todos',{'action':text})
+    return axios.post(API_ENDPOINT+'/api/todos',{'action':text})
 }
 
 function deleteActionFromDatabase(id){
-    return axios.delete(`/api/todos/${id}`)
+    return axios.delete(API_ENDPOINT+`/api/todos/${id}`)
 }
 
 function* fetchActions(){
