@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const routes = require('./routes/api/todo');
 
+const cors = require('cors')
+
 require('dotenv').config();
 
 const port = process.env.PORT;
@@ -23,6 +25,7 @@ mongoose.connect(mongoEndpoint, {useNewUrlParser: true})
         .then(() => console.log('Database connected'))
         .catch(err => console.log(err));
 
+app.use(cors({origin: feEndpoint}))
 app.use(bodyParser.json());
 app.use('/api',routes);
 
