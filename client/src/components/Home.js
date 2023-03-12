@@ -8,13 +8,13 @@ const MainWrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: #000;
+    background-color: pink;
     flex-direction: column;
     align-items: center;
   `
 
 const StyledHeading = styled.h1`
-  color: #fff;
+  color: #000;
 `  
 
 export default class Home extends Component {

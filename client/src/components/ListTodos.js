@@ -14,7 +14,7 @@ class ListTodos extends Component {
 
         return actions.map(act => <TodoItem key={act._id} id={act._id} text={act.action} />);
       } else {
-        return <div>No todos found</div>
+        return <div style={{marginTop: "20px"}}>No todos found, add one!</div>
       }
   }
 }
