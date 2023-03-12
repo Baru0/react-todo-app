@@ -10,9 +10,11 @@ const port = process.env.PORT || 5050;
 
 const app = express();
 
+const mongoEndpoint = "localhost:27017" // process.env.DB
+
 //connect to database
 
-mongoose.connect(process.env.DB, {useNewUrlParser: true})
+mongoose.connect(mongoEndpoint, {useNewUrlParser: true})
         .then(() => console.log('Database connected'))
         .catch(err => console.log(err));
 
