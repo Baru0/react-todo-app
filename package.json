@@ -1,0 +1,19 @@
+{
+  "name": "react-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "install:client": "npm install --prefix client",
+    "build:client": "npm run build --prefix client",
+    "serve:client": "serve -s -n ./client/build -l 80",
+    "install:server": "npm install --prefix server",
+    "serve:server": "npm run start --prefix server",
+    "install:all": "npm-run-all --sequential install:client install:server",
+    "serve:all": "npm-run-all --parallel serve:client serve:server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
