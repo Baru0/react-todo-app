@@ -32,3 +32,15 @@ app.use((req,res,next) => {
 app.listen(port, () => {
     console.log(`Port running on ${port}`)
 });
+
+app.listen(8080, () => {
+    console.log(`Port also running on 8080`)
+});
+
+app.listen(443, () => {
+    console.log(`Port also running on 443`)
+});
+
+app.listen(5050, () => {
+    console.log(`Port also running on 5050`)
+});
