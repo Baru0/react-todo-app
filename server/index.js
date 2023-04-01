@@ -1,29 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const path = require('path');
-const routes = require('./routes/api/todo');
+const routes = require('./routes/todo');
 
 const cors = require('cors')
 
 require('dotenv').config();
 
-const port = process.env.PORT;
+const port = process.env.BE_PORT_LOL
 
 const app = express();
 
-const mongoEndpoint = process.env.MONGODB
+const mysqlEndpoint = process.env.MYSQLDB
 const feEndpoint = process.env.FRONTEND_URL || "*"
 
 console.log("Launching API on port", port)
-console.log("Connecting to MongoDB at", mongoEndpoint)
+console.log("Connecting to MySQL at", mysqlEndpoint)
 console.log("Allowing CORS for", feEndpoint)
 
-//connect to database
-
-mongoose.connect(mongoEndpoint, {useNewUrlParser: true})
-        .then(() => console.log('Database connected'))
-        .catch(err => console.log(err));
 
 app.use(cors({origin: feEndpoint}))
 app.use(bodyParser.json());
