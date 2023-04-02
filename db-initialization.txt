@@ -1,0 +1,8 @@
+https://www.npmjs.com/package/mysql
+
+
+CREATE TABLE todos(
+    _id INT NOT NULL AUTO_INCREMENT,
+    action VARCHAR (200),
+    PRIMARY KEY (_id)
+)
