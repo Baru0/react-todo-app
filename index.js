@@ -8,6 +8,11 @@ const port = process.env.BE_PORT
 
 const app = express();
 
+const feEndpoint = process.env.FRONTEND_URL || "*"
+
+
+console.log("Launching API on port", port)
+console.log("Allowing CORS for", feEndpoint)
 
 app.use(cors({origin: feEndpoint}))
 app.use(bodyParser.json());

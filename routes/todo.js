@@ -1,12 +1,34 @@
 const express = require('express');
+const mysql = require('mysql')
 const router = express.Router();
-const connection = require('../connection')
+require('dotenv').config();
+
+
+console.log("Connecting to MySQL at", process.env.MYSQL_HOST)
+
+const connection = mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB_NAME,
+    // port: 1234
+})
+
+let error = ""
+
+connection.connect((err) => {
+    console.log(err)
+    error = err
+})
 
 // https://www.npmjs.com/package/mysql
 
-//router.get('/todos', (req,res) => {
-//    res.json([{action: "Hardcoded todo 1"}, {action: "Hardcoded todo 2"}])
-//});
+const fallback = (responder) => {
+    if(error) {
+        responder.json({error})
+        return true
+    }
+}
 
 const returner = (responder, queryResult) => {
     responder.json(
@@ -17,21 +39,25 @@ const returner = (responder, queryResult) => {
     )
 }
 
+
 router.get('/todos', (req, res) => {
-    connection.query("SELECT * from XX", queryResult => returner(res, queryResult))
+    if(fallback(res)) return
+    connection.query("SELECT * from todos", queryResult => returner(res, queryResult))
 })
 
 router.post('/todos', (req,res) => {
+    if(fallback(res)) return
     if(!req.body.action){
         res.json({
             error: "The input field is empty"
         })
     }
-    connection.query(`INSERT ${req.body.action} into XX`, queryResult => returner(res, queryResult))
+    connection.query(`INSERT INTO todos (action) VALUES ("${mysql.escape(req.body.action)}")`, queryResult => returner(res, queryResult))
 })
 
 router.delete('/todos/:id', (req, res) => {
-    connection.query(`DELETE * WHERE id=${req.params.id} from XX`, queryResult => returner(res, queryResult))
+    if(fallback(res)) return
+    connection.query(`DELETE _id, action FROM todos WHERE _id=${mysql.escape(req.params.id)}`, queryResult => returner(res, queryResult))
 })  
   
 
