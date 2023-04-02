@@ -4,14 +4,10 @@ const routes = require('./routes/todo');
 
 const cors = require('cors')
 
-const port = process.env.BE_PORT
-
 const app = express();
 
 const feEndpoint = process.env.FRONTEND_URL || "*"
 
-
-console.log("Launching API on port", port)
 console.log("Allowing CORS for", feEndpoint)
 
 app.use(cors({origin: feEndpoint}))
@@ -25,18 +21,10 @@ app.use((req,res,next) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Port running on ${port}`)
-});
-
-app.listen(8080, () => {
-    console.log(`Port also running on 8080`)
+app.listen(80, () => {
+    console.log(`API listening to on HTTP 80`)
 });
 
 app.listen(443, () => {
-    console.log(`Port also running on 443`)
-});
-
-app.listen(5050, () => {
-    console.log(`Port also running on 5050`)
+    console.log(`API listening to HTTPS 443`)
 });
