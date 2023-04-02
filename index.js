@@ -4,18 +4,9 @@ const routes = require('./routes/todo');
 
 const cors = require('cors')
 
-require('dotenv').config();
-
-const port = process.env.BE_PORT_LOL
+const port = process.env.BE_PORT
 
 const app = express();
-
-const mysqlEndpoint = process.env.MYSQLDB
-const feEndpoint = process.env.FRONTEND_URL || "*"
-
-console.log("Launching API on port", port)
-console.log("Connecting to MySQL at", mysqlEndpoint)
-console.log("Allowing CORS for", feEndpoint)
 
 
 app.use(cors({origin: feEndpoint}))
