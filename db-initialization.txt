@@ -6,3 +6,5 @@ CREATE TABLE todos(
     action VARCHAR (200),
     PRIMARY KEY (_id)
 )
+
+curl -X POST --data "{\"action\":\"curl\"}" --header "Content-Type: application/json" https://x482447be2.azurewebsites.net/api/todos
