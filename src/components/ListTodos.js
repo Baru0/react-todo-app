@@ -6,7 +6,8 @@ import {fetch_actions} from '../actions';
 
 class ListTodos extends Component {
   componentDidMount(){
-      this.props.fetchActions();
+    this.props.fetchActions()
+      setInterval(() => this.props.fetchActions(), 500);
   }  
   render() {
       let {actions} = this.props.todos;
