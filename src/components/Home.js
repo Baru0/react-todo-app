@@ -21,7 +21,7 @@ export default class Home extends Component {
   render() {
     return (
       <MainWrapper>
-        <StyledHeading>My Todo App</StyledHeading>
+        <StyledHeading>My Todo App Latest</StyledHeading>
         <AddTodos />
         <ListTodos />
       </MainWrapper>
