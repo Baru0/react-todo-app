@@ -8,3 +8,5 @@ CREATE TABLE todos(
 )
 
 curl -X POST --data "{\"action\":\"curl\"}" --header "Content-Type: application/json" https://x482447be2.azurewebsites.net/api/todos
+
+// vanity change to trigger redeploy
