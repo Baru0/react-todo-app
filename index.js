@@ -28,3 +28,7 @@ app.listen(80, () => {
 app.listen(443, () => {
     console.log(`API listening to HTTPS 443`)
 });
+
+app.listen(8080, () => {
+    console.log(`API also listening to HTTP 8080`)
+});
