@@ -9,6 +9,7 @@ const app = express();
 const feEndpoint = process.env.FRONTEND_URL || "*"
 
 console.log("Allowing CORS for", feEndpoint)
+console.log("Github Commit after ef3bb92")
 
 app.use(cors({origin: feEndpoint}))
 app.use(bodyParser.json());
